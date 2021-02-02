@@ -1,0 +1,94 @@
+<!-- main app container -->
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-8  card">
+            <h5 class="card-header">Visitors Detail Page</h5>
+            <div class="card-body">
+                <form [formGroup]="vistorsForm" (ngSubmit)="onSubmit()">
+                    <div class="form-row">
+                       <div class="form-group col-12">
+                        <label>Full Name</label>
+                        <input type="text" formControlName="fullName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.fullName.errors }" />
+                        <div *ngIf="submitted && f.fullName.errors" class="invalid-feedback">
+                            <div *ngIf="f.fullName.errors.required">Full Name is required</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-12">
+                        <label>Email</label>
+                        <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                            <div *ngIf="f.email.errors.required">Email is required</div>
+                            <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-6">
+                        <label>Type of Visit</label>
+                        <select formControlName="visitortype" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.visitortype.errors }">
+                            <option value=""></option>
+                            <option value="Meeting">Meeting</option>
+                            <option value="Delivery">Delivery</option>
+                            <option value="Personal">Personal</option>
+
+                        </select>
+                        <div *ngIf="submitted && f.visitortype.errors" class="invalid-feedback">
+                            <div *ngIf="f.visitortype.errors.required">Type of Visit is required</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-6">
+                        <label>Person to visit</label>
+                        <input type="text" formControlName="personofvisit" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.personofvisit.errors }" />
+                        <div *ngIf="submitted && f.personofvisit.errors" class="invalid-feedback">
+                            <div *ngIf="f.personofvisit.errors.required">Person to visit is required</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-6">
+                        <label>Date of Entry</label>
+                        <input type="date" formControlName="dateofentry" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.dateofentry.errors }" />
+                        <div *ngIf="submitted && f.dateofentry.errors" class="invalid-feedback">
+                            <div *ngIf="f.dateofentry.errors.required">Date of Entry is required</div>
+                            <div *ngIf="f.dateofentry.errors.pattern">Date of Birth must be a valid date in the format YYYY-MM-DD</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-6">
+                        <label>Select File</label>
+                          <input type="file" (change)="onFileSelected($event)" class="form-control">
+                 
+                     </div>
+
+                </div>
+                <div class="form-row">
+                    <div class="form-group col">
+                        <label>Time of Entry</label>
+                        <input type="time" formControlName="timeofentry" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.timeofentry.errors }" />
+                        <div *ngIf="submitted && f.timeofentry.errors" class="invalid-feedback">
+                            <div *ngIf="f.timeofentry.errors.required">Time of Entry is required</div>
+                           
+                        </div>
+                    </div>
+                    <div class="form-group col">
+                        <label>Time of Exit</label>
+                        <input type="time" formControlName="timeofexit" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.timeofexit.errors }" />
+                        <div *ngIf="submitted && f.timeofexit.errors" class="invalid-feedback">
+                            <div *ngIf="f.timeofexit.errors.required">Time of Exit is required</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <button class="btn btn-primary mr-1">Add-Details</button>
+                    <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+</div>
+</div>

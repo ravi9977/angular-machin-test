@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-12">
+     <h5 class="card-header">Visitors List Page</h5>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Type of Visit</th>
+            <th scope="col">Person to Visit</th>
+            <th scope="col">Date of Entry</th>
+            <th scope="col">Time of Entry</th>
+            <th scope="col">Time of Exit</th>
+             <th scope="col">Files</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of VisitorList; let i = index">
+            <th scope="row">{{i+1}}</th>
+            <td>{{data.fullName}}</td>
+            <td>{{data.email}}</td>
+            <td>{{data.visitortype}}</td>
+            <td>{{data.personofvisit}}</td>
+            <td>{{data.dateofentry}}</td>
+            <td>{{data.timeofentry}}</td>
+            <td>{{data.timeofexit}}</td>
+            <td>{{data.file}}</td>
+          </tr>
+ 
+        </tbody>
+      </table>
+    </div>
+
+      <div class="col-md-12">
+      <button class="btn-primary" [routerLink]="'/news'">
+          News</button>
+      </div>
+
+
+  </div>
+</div>
